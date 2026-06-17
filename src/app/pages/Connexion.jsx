@@ -42,7 +42,7 @@ const Connexion = () => {
                     localStorage.setItem("token", result.token);
                 }
                 alert(`Connexion réussie ${result.user.prenom} ${result.user.nom}` );
-                navigte('/accueil');
+                navigate('/');
                 
             } else {
                 alert(result.message || "Identifiants incorrects");
