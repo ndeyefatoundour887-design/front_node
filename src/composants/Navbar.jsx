@@ -19,7 +19,7 @@ const Navbar = () => {
 
   return (
     
-    <div className='w-full h-[10vh] flex items-center justify-between px-10 py-2 bg-neutral-400'>
+    <div className='w-full h-[10vh] flex items-center justify-between px-10 py-2 bg-white/80 backdrop-blur-md'>
         <NavLink to="/">
   <img src={logo} alt="Logo" className="w-20 h-auto" />
 </NavLink>
