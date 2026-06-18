@@ -30,6 +30,7 @@ const Navbar = () => {
           to="/profil"
           className="text-gray-600 font-medium hover:text-black"
         >
+
         </NavLink>
 
         {token ? (
@@ -43,14 +44,14 @@ const Navbar = () => {
           <>
             <NavLink
               to="/connexion"
-              className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-3 rounded-md shadow"
+              className="bg-blue-500 bg-gradient-to-r from-purple-600 text-white font-bold px-8 py-3 rounded-md shadow"
             >
               Connexion
             </NavLink>
 
             <NavLink
               to="/inscription"
-              className="bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-3 rounded-md shadow"
+              className="bg-blue-600 bg-gradient-to-r from-purple-600 text-white font-bold px-8 py-3 rounded-md shadow"
             >
               Inscription
             </NavLink>

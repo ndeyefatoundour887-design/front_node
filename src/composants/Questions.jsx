@@ -46,8 +46,8 @@ const Questions = () => {
   ];
 
   return (
-    <div className="w-full p-10">
-      <h1 className="text-3xl font-bold mb-6">Les questions</h1>
+    <div className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition duration-300">
+      <h1 className="text-2xl font-bold text-gray-800">Les questions</h1>
 
       <div className="space-y-4">
         {questions.map((question) => (
