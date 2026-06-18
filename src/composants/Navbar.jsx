@@ -2,58 +2,65 @@ import React from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import logo from '../assets/logo.png';
 
-
-
 const Navbar = () => {
 
-    const navigate = useNavigate();
-     const token = localStorage.getItem("token");
+  const navigate = useNavigate();
+  const token = localStorage.getItem("token");
 
-
-        
   const Deconnexion = () => {
-      localStorage.removeItem("token");
-       alert('deconnexion reussie')
-        navigate('/')
+    localStorage.removeItem("token");
+    alert('Déconnexion réussie');
+    navigate('/');
   }
 
   return (
-    
-    <div className='w-full h-[10vh] flex items-center justify-between px-10 py-2 bg-white/80 backdrop-blur-md'>
-        <NavLink to="/">
-  <img src={logo} alt="Logo" className="w-20 h-auto" />
-</NavLink>
-         <div className="flex items-center gap-5">
-            <NavLink to="/profil" className='text-white'>Profil</NavLink>
-           
-             {
-               token ? (
+    <nav className="w-full h-[70px] bg-[#e9e9e9] border border-gray-300 flex items-center justify-between px-6 shadow-sm">
 
-                 <button
-                  onClick={() => Deconnexion()}
-                  className="bg-red-600 text-white px-6 py-1 rounded font-bold hover:bg-red-700">
-                  Se déconnecter
-                </button>
-                  
-               ) : (
-              <div className="flex itemx-center gap-2">
-              <NavLink
+      {/* Logo */}
+      <NavLink to="/">
+        <div className="bg-white px-4 py-2 border-r border-gray-300">
+          <img src={logo} alt="Logo" className="h-10 w-auto" />
+        </div>
+      </NavLink>
+
+      {/* Menu */}
+      <div className="flex items-center gap-4">
+
+        <NavLink
+          to="/profil"
+          className="text-gray-600 font-medium hover:text-black"
+        >
+          Profil
+        </NavLink>
+
+        {token ? (
+          <button
+            onClick={Deconnexion}
+            className="bg-red-600 hover:bg-red-700 text-white font-bold px-6 py-3 rounded-md"
+          >
+            Déconnexion
+          </button>
+        ) : (
+          <>
+            <NavLink
               to="/connexion"
-              className="bg-yellow-600 text-white px-6 py-1 rounded font-bold hover:bg-red-700">
-              connexion
-             </NavLink>
-              <NavLink
-               to="/inscription"
-              className="bg-green-600 text-white px-6 py-1 rounded font-bold hover:bg-red-700">
-              inscription
-             </NavLink>
-            </div>
-               )
-             }
-           
-         </div>
-    </div>
+              className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-3 rounded-md shadow"
+            >
+              Connexion
+            </NavLink>
+
+            <NavLink
+              to="/inscription"
+              className="bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-3 rounded-md shadow"
+            >
+              Inscription
+            </NavLink>
+          </>
+        )}
+
+      </div>
+    </nav>
   )
 }
 
-export default Navbar
+export default Navbar;
