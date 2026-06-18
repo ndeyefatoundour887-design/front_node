@@ -15,7 +15,7 @@ const Accueil = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-100 via-blue-50 to-purple-50">
+  <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-100 via-pink-50 to-white p-4">
 
       {/* HERO SECTION */}
       <div className="max-w-7xl mx-auto px-8 py-12">
@@ -72,7 +72,7 @@ const Accueil = () => {
             onClick={VerificationToken}
             className="bg-blue-600 text-white px-5 py-3 rounded-xl font-semibold hover:bg-blue-700 transition"
           >
-            Ajouter une question
+            ➕Ajouter une question
           </NavLink>
 
         </div>
