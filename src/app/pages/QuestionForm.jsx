@@ -1,27 +1,22 @@
-const AjouterQuestion = async (e) => {
-  e.preventDefault();
+import React from "react";
 
-  const data = {
-    titre,
-    description,
-    auteur: "Ndeye Fatou",
+const QuestionForm = () => {
+
+  const ajouterQuestion = (e) => {
+    e.preventDefault();
+
+    console.log("Question ajoutée");
   };
 
-  const response = await fetch(
-    `${URL_FRONT}/api/questions/ajouter`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    }
+  return (
+    <form onSubmit={ajouterQuestion}>
+      <input type="text" placeholder="Titre" />
+
+      <button type="submit">
+        Ajouter
+      </button>
+    </form>
   );
-
-  const result = await response.json();
-
-  if (response.ok) {
-    alert("Question ajoutée");
-    navigate("/");
-  }
 };
+
+export default QuestionForm;

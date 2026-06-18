@@ -1,6 +1,4 @@
-import React from "react";
-import QuestionCard from "./QuestionCard";
-
+import React, { useEffect, useState } from "react";
 const Questions = () => {
   const [questions, setQuestions] = useState([]);
 
