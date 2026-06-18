@@ -2,49 +2,36 @@ import React from "react";
 import QuestionCard from "./QuestionCard";
 
 const Questions = () => {
-  const questions = [
-    {
-      id: 1,
-      titre: "Comment utiliser useEffect dans React pour récupérer des données ?",
-      description:
-        "Je débute avec React et je souhaite récupérer des données depuis une API avec useEffect.",
-      heure: "09:15",
-      auteur: "Aminata Ndiaye",
-    },
-    {
-      id: 2,
-      titre: "Pourquoi mon serveur Express retourne une erreur 404 ?",
-      description:
-        "J'ai créé une route GET /users mais lorsque je fais une requête depuis Postman, je reçois une erreur 404.",
-      heure: "10:30",
-      auteur: "Mamadou Diallo",
-    },
-    {
-      id: 3,
-      titre: "Comment connecter Spring Boot à une base de données MySQL ?",
-      description:
-        "Mon application Spring Boot ne parvient pas à se connecter à MySQL.",
-      heure: "11:45",
-      auteur: "Fatou Sow",
-    },
-    {
-      id: 4,
-      titre: "Quelle est la différence entre let, const et var en JavaScript ?",
-      description:
-        "Je vois souvent ces trois mots-clés dans les exemples JavaScript.",
-      heure: "14:20",
-      auteur: "Cheikh Ba",
-    },
-    {
-      id: 5,
-      titre: "Comment créer une authentification JWT avec Node.js ?",
-      description:
-        "Je développe une API avec Express et je souhaite sécuriser mes routes avec JWT.",
-      heure: "16:05",
-      auteur: "Khadija Fall",
-    },
-  ];
+  const [questions, setQuestions] = useState([]);
 
+  useEffect(() => {
+    fetch("http://localhost:5000/api/questions")
+      .then((res) => res.json())
+      .then((data) => setQuestions(data));
+  }, []);
+
+  return (
+    <div className="space-y-4">
+      {questions.map((question) => (
+        <div
+          key={question._id}
+          className="bg-white p-6 rounded-xl shadow"
+        >
+          <h2 className="font-bold text-xl">
+            {question.titre}
+          </h2>
+
+          <p className="mt-2 text-gray-600">
+            {question.description}
+          </p>
+
+          <p className="mt-3 text-blue-500">
+            {question.auteur}
+          </p>
+        </div>
+      ))}
+    </div>
+  );
   return (
     <div className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition duration-300">
       <h1 className="text-2xl font-bold text-gray-800">Les questions</h1>
