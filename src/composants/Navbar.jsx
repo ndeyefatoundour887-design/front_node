@@ -18,7 +18,7 @@ const Navbar = () => {
 
       {/* Logo */}
       <NavLink to="/">
-        <div className="bg-white px-4 py-2 border-r border-gray-300">
+        <div className="bg-[#e9e9e9] px-4 py-2 border-r border-gray-300">
           <img src={logo} alt="Logo" className="h-10 w-auto" />
         </div>
       </NavLink>
@@ -30,7 +30,6 @@ const Navbar = () => {
           to="/profil"
           className="text-gray-600 font-medium hover:text-black"
         >
-          Profil
         </NavLink>
 
         {token ? (

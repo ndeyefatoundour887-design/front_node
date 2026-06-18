@@ -59,41 +59,75 @@ const Connexion = () => {
 
 
   return (
-      <div className="w-screen h-screen  flex items-center justify-center">
+  <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-100 via-pink-50 to-white p-4">
 
-        <div className="w-full max-w-xl p-5 bg-white">
+    <div className="w-full max-w-lg bg-white/80 backdrop-blur-md rounded-3xl shadow-2xl p-8">
 
-            <h1 className="text-center font-bold text-xl">Connexion</h1>
+      <div className="flex justify-center mb-4">
+        <div className="w-20 h-20 rounded-full bg-orange-100 flex items-center justify-center text-4xl">
+          🔐
+        </div>
+      </div>
 
-            <form  onSubmit={Laconnexion} >
-                <div className="flex flex-col gap-2">
-                    <label >Email</label>
-                    <input
-                        className="border py-1 px-3 border-black"
-                        type="email" 
-                        placeholder="exemple@gmail.com"
-                        value = {email}
-                        onChange={ (e) => setEmail(e.target.value)}
-                         />
-                </div>
-                <div className="flex flex-col gap-2 mt-2">
-                    <label >Mot de passe</label>
-                    <input
-                        className="border py-1 px-3 border-black"
-                        type="password" 
-                        placeholder="Mot de passe"
-                        value = {password}
-                        onChange={ (e) => setPassword(e.target.value)} />
-                </div>
+      <h1 className="text-4xl font-bold text-center text-indigo-900 mb-8">
+        Connexion
+      </h1>
 
-                <button type="submit"  className="w-full bg-black text-white mt-10 py-2 mb-2">Se connecter</button>
-                <Link to="/inscription" className="text-red-600 font-bold underline">S'inscrire</Link>
-            </form>
+      <form onSubmit={Laconnexion} className="space-y-5">
 
+        <div>
+          <label className="block text-gray-700 mb-2 font-medium">
+            Email
+          </label>
+          <input
+            type="email"
+            placeholder="exemple@gmail.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full p-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
         </div>
 
+        <div>
+          <label className="block text-gray-700 mb-2 font-medium">
+            Mot de passe
+          </label>
+          <input
+            type="password"
+            placeholder="********"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full p-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+
+        <button
+          type="submit"
+          className="w-full py-4 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold text-lg hover:scale-105 transition duration-300"
+        >
+          Se connecter →
+        </button>
+
+        <div className="text-center">
+          <span className="text-gray-600">
+            Pas encore de compte ?
+          </span>
+
+          <Link
+            to="/inscription"
+            className="ml-2 text-red-600 font-semibold hover:underline"
+          >
+            S'inscrire
+          </Link>
+        </div>
+
+      </form>
+
     </div>
-  )
+
+  </div>
+);
+  
 }
 
 export default Connexion
