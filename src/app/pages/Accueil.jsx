@@ -14,23 +14,26 @@ const Accueil = () => {
     }
   };
 
+  const welcomeQuestions = [
+    "REACT ?",
+    "LARAVEL?",
+    "PHP?",
+    "JAVASCRIPT ?",
+    "GITHUP?",
+    "VERCEL ?",
+  ];
+
   return (
-  <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-100 via-pink-50 to-white p-4">
-
-      {/* HERO SECTION */}
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-100 via-pink-50 to-white p-4">
       <div className="max-w-7xl mx-auto px-8 py-12">
-
         <div className="bg-gradient-to-r from-blue-600 to-purple-700 text-white rounded-3xl p-10 shadow-xl">
-
           <h1 className="text-5xl font-bold mb-4">
             Bienvenue sur Mini Stack Overflow 🚀
           </h1>
-
           <p className="text-lg opacity-90 max-w-2xl">
             Posez vos questions, trouvez des réponses et partagez vos
             connaissances avec la communauté des développeurs.
           </p>
-
           <button
             onClick={VerificationToken}
             className="mt-8 bg-white text-blue-600 px-8 py-4 rounded-xl font-bold shadow-lg hover:scale-105 transition"
@@ -39,48 +42,51 @@ const Accueil = () => {
           </button>
         </div>
 
-        {/* STATISTIQUES */}
-
         <div className="grid md:grid-cols-3 gap-6 mt-10">
-
           <div className="bg-white p-6 rounded-2xl shadow-md text-center">
             <h2 className="text-4xl font-bold text-blue-600">120+</h2>
             <p className="text-gray-600 mt-2">Questions</p>
           </div>
-
           <div className="bg-white p-6 rounded-2xl shadow-md text-center">
             <h2 className="text-4xl font-bold text-green-600">85+</h2>
             <p className="text-gray-600 mt-2">Réponses</p>
           </div>
-
           <div className="bg-white p-6 rounded-2xl shadow-md text-center">
             <h2 className="text-4xl font-bold text-purple-600">50+</h2>
             <p className="text-gray-600 mt-2">Utilisateurs</p>
           </div>
-
         </div>
 
-        {/* TITRE QUESTIONS */}
+        {/* SECTION QUESTIONS D'ACCUEIL */}
+        <div className="mt-12">
+          <h3 className="text-2xl font-semibold text-gray-800 mb-4">Questions d’accueil</h3>
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+            {welcomeQuestions.map((q, idx) => (
+              <button
+                key={idx}
+                onClick={() => {
+                  // action par défaut : naviguer vers ajouter_question si token, sinon connexion
+                  VerificationToken();
+                }}
+                className="text-left bg-white hover:shadow-lg transition p-4 rounded-xl border border-gray-100"
+              >
+                <p className="text-gray-800 font-medium">{q}</p>
+              </button>
+            ))}
+          </div>
+        </div>
 
         <div className="flex justify-between items-center mt-14 mb-6">
-
-          <h2 className="text-3xl font-bold text-gray-800">
-            Questions récentes
-          </h2>
-
+          <h2 className="text-3xl font-bold text-gray-800">Questions récentes</h2>
           <NavLink
             onClick={VerificationToken}
             className="bg-blue-600 text-white px-5 py-3 rounded-xl font-semibold hover:bg-blue-700 transition"
           >
             ➕Ajouter une question
           </NavLink>
-
         </div>
 
-        {/* LISTE DES QUESTIONS */}
-
         <Questions />
-
       </div>
     </div>
   );
