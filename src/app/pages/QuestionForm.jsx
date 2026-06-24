@@ -29,18 +29,15 @@ const AjouterQuestion = () => {
     }
 
     const payload = {
-      title: title.trim(),
-      body: body.trim(),
-      tags: tags
-        .split(",")
-        .map((t) => t.trim())
-        .filter(Boolean),
-    };
+  titre: title.trim(),
+  description: body.trim(),
+  auteur: "Utilisateur",
+};
     console.log("Payload envoyé :", payload);
 
     setLoading(true);
     try {
-      const res = await fetch("/api/questions", {
+      const res = await fetch("/api/questions/ajouter",{
         method: "POST",
         headers: {
           "Content-Type": "application/json",

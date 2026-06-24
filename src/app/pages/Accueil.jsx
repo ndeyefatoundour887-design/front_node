@@ -59,7 +59,7 @@ const Accueil = () => {
 
         {/* SECTION QUESTIONS D'ACCUEIL */}
         <div className="mt-12">
-          <h3 className="text-2xl font-semibold text-gray-800 mb-4">Questions d’accueil</h3>
+          <h3 className="text-2xl font-semibold text-gray-800 mb-4">Questions Récentes</h3>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
             {welcomeQuestions.map((q, idx) => (
               <button
